@@ -1,0 +1,4 @@
+---
+# defaults file for nginx-ubuntu
+nginx_use_ppa: no
+nginx_upgrade: no
