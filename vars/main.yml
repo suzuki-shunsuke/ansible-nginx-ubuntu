@@ -1,3 +1,5 @@
 ---
 # vars file for nginx-ubuntu
 nginx_nonroot: "{{ (ansible_env.HOME == '/root') | ternary('no', 'yes') }}"
+nginx_pgp_url: http://nginx.org/keys/nginx_signing.key
+nginx_repository_url: http://nginx.org/packages/ubuntu/
