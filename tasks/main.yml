@@ -10,8 +10,8 @@
       dest=/etc/apt/sources.list
       line='{{item}} {{nginx_repository_url}} {{ansible_distribution_release}} nginx'
     with_items:
-      - deb
-      - deb-src
+    - deb
+    - deb-src
     become: "{{ nginx_nonroot }}"
   when: nginx_use_ppa
 - name: Install nginx

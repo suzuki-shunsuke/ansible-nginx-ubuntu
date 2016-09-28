@@ -2,4 +2,10 @@
 - hosts: localhost
   connection: local
   roles:
-  - ansible-nginx-ubuntu
+  - role: ansible-nginx-ubuntu
+    nginx_use_ppa: yes
+    nginx_upgrade: yes
+  tasks:
+  - command: nginx -v
+    register: result
+  - debug: var=result
