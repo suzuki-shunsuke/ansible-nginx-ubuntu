@@ -1,6 +1,5 @@
 ---
-- hosts: localhost
-  connection: local
+- hosts: default
   roles:
   - role: ansible-nginx-ubuntu
     nginx_use_ppa: yes

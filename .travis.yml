@@ -15,7 +15,7 @@ addons:
 before_install: cd tests
 
 script:
-- ansible-playbook test.yml
+- ansible-playbook -i inventory-local test.yml
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/

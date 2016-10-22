@@ -30,7 +30,9 @@ Example Playbook
 ```yaml
 - hosts: servers
   roles:
-  - { role: suzuki-shunsuke.nginx-ubuntu, nginx_use_ppa: yes , nginx_upgrade: no }
+  - role: suzuki-shunsuke.nginx-ubuntu
+    nginx_use_ppa: yes
+    nginx_upgrade: no
 ```
 
 License

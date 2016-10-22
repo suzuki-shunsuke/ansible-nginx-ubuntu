@@ -2,21 +2,23 @@
 # tasks file for nginx-ubuntu
 - block:
   - name : Add official nginx PGP key
-    apt_key: url={{nginx_pgp_url}} state=present
-    become: "{{ nginx_nonroot }}"
-  - name : Add official nginx repository
-    lineinfile : >
-      dest=/etc/apt/sources.list
-      line='{{item}} {{nginx_repository_url}} {{ansible_distribution_release}} nginx'
+    apt_key:
+      url: "{{nginx_pgp_url}}"
+      state: present
+    become: "{{nginx_nonroot}}"
+  - name: Add official nginx repository
+    lineinfile:
+      dest: /etc/apt/sources.list
+      line: "{{item}} {{nginx_repository_url}} {{ansible_distribution_release}} nginx"
     with_items:
     - deb
     - deb-src
-    become: "{{ nginx_nonroot }}"
+    become: "{{nginx_nonroot}}"
   when: nginx_use_ppa
 - name: Install nginx
   apt: 
     name: nginx
     update_cache: yes
     install_recommends: no
-    state: "{{ nginx_upgrade | ternary('latest', 'present') }}"
-  become: "{{ nginx_nonroot }}"
+    state: "{{nginx_upgrade | ternary('latest', 'present')}}"
+  become: "{{nginx_nonroot}}"
